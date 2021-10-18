@@ -1,4 +1,4 @@
-package com.example.lab5milestone1;
+package com.example.lab5milestone2;
 
 import androidx.appcompat.app.AppCompatActivity;
 

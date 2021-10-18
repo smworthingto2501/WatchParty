@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lab5milestone1">
+    package="com.example.lab5milestone2">
 
     <application
         android:allowBackup="true"
@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab5milestone1">
+        <activity
+            android:name=".NewNote"
+            android:exported="true" />
         <activity
             android:name=".NotesApp"
             android:exported="true" />
