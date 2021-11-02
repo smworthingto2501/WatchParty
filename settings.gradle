@@ -6,5 +6,5 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "lab5milestone1"
+rootProject.name = "watchPartyApp"
 include ':app'
