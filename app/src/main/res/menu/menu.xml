@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/addNote"
-        android:title="Add Note" />
+        android:id="@+id/streaming"
+        android:title="Streaming" />
 
     <item
         android:id="@+id/logout"

@@ -1,4 +1,4 @@
-package com.example.lab5milestone2;
+package com.example.semesterProject;
 
 import android.content.Context;
 
