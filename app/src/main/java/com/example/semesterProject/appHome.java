@@ -1,6 +1,7 @@
 package com.example.semesterProject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,15 +11,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class appHome extends AppCompatActivity {
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +24,7 @@ public class appHome extends AppCompatActivity {
         String usernameKey = "username";
         String servicesKey = "services";
         setContentView(R.layout.activity_notes_app);
+
 
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
@@ -50,21 +49,22 @@ public class appHome extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logout:
-                Intent intent = new Intent(this, firstLogin.class);
+                Intent intent = new Intent(this, LoginPage.class);
                 SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
-                sharedPreferences.edit().remove(firstLogin.usernameKey).apply();
-                sharedPreferences.edit().remove(firstLogin.servicesKey).apply();
+                sharedPreferences.edit().remove(LoginPage.usernameKey).apply();
+                sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
                 startActivity(intent);
                 return true;
             case R.id.streaming:
-                Intent intentChangeStreaming = new Intent(this, chooseServices.class);
+                Intent intentChangeStreaming = new Intent(this, CreateAccount.class);
                 SharedPreferences sharedPreferencesServices = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
-                sharedPreferencesServices.edit().remove(firstLogin.servicesKey).apply();
+                sharedPreferencesServices.edit().remove(LoginPage.servicesKey).apply();
                 startActivity(intentChangeStreaming);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
 
 }

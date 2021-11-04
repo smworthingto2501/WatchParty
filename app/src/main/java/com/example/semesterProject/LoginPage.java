@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class firstLogin extends AppCompatActivity {
+public class LoginPage extends AppCompatActivity {
 
     public static String usernameKey;
     public static String servicesKey;
@@ -28,16 +28,16 @@ public class firstLogin extends AppCompatActivity {
                 startActivity(intent);
             }
             else {
-                Intent intent = new Intent(this, chooseServices.class);
+                Intent intent = new Intent(this, CreateAccount.class);
                 startActivity(intent);
             }
         } else {
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.login_page);
         }
 
     }
 
-    public void clickFunction(View view) {
+    public void LoginButtonFunction(View view) {
 
         EditText myTextField = (EditText) findViewById(R.id.editTextUsername);
         String str = myTextField.getText().toString();
@@ -49,8 +49,13 @@ public class firstLogin extends AppCompatActivity {
 
     }
 
+    public void goToCreateAccount(View view) {
+        Intent intent = new Intent(this, CreateAccount.class);
+        startActivity(intent);
+    }
+
     public void goToActivity2(String s) {
-        Intent intent = new Intent(this, chooseServices.class);
+        Intent intent = new Intent(this, CreateAccount.class);
         intent.putExtra("username", s);
         startActivity(intent);
     }

@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab5milestone1">
         <activity
-            android:name=".chooseServices"
+            android:name=".CreateAccount"
             android:exported="true" />
         <activity
             android:name=".appHome"
             android:exported="true" />
         <activity
-            android:name=".firstLogin"
+            android:name=".LoginPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
