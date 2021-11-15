@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp"
     android:paddingTop="16dp"
+    android:paddingRight="16dp"
     android:paddingBottom="16dp"
     tools:context=".WatchlistFragment">
 
@@ -16,8 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="46dp"
         android:text="Watchlist"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,19 +27,19 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="564dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="7dp"
         android:onClick="onClick"
         android:text="Remove from Watchlist"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <ListView
-        android:layout_width="371dp"
-        android:layout_height="527dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="17dp"
+        android:id="@+id/watchlist"
+        android:layout_width="302dp"
+        android:layout_height="345dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="35dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

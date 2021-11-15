@@ -32,6 +32,9 @@ public class appHome extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
 
+        //@TODO
+        //right now this is showing up on all the fragments
+
         TextView welcomeMessage = findViewById(R.id.textView);
         welcomeMessage.setText("Welcome " + sharedPreferences.getString(usernameKey, "") + ". We know" +
                 " that you have access to " + sharedPreferences.getString(servicesKey, "") + ".");
