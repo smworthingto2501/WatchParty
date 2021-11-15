@@ -25,4 +25,11 @@ public class WatchlistFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_watchlist, container, false);
     }
+
+    //@TODO
+    //right now there is a list view for the movie watchlist, this may be wrong
+    //idea is that selected movies could be removed with button in method below...
+    public void onClick(View v){
+
+    }
 }

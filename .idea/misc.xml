@@ -3,15 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/jackp/StudioProjects/WatchParty/app/src/main/res/layout/login_page.xml" value="0.33" />
         <entry key="app/src/main/res/drawable/ic_group.xml" value="0.228125" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14010416666666667" />
         <entry key="app/src/main/res/layout/activity_choose_services.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.12952898550724637" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_new_note.xml" value="0.17" />
         <entry key="app/src/main/res/layout/activity_notes_app.xml" value="0.17" />
         <entry key="app/src/main/res/layout/fragment_group.xml" value="0.21197916666666666" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_watchlist.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.22395833333333334" />
         <entry key="app/src/main/res/menu/topbar.xml" value="0.21197916666666666" />

@@ -25,4 +25,10 @@ public class GroupFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_group, container, false);
     }
+
+    //@TODO
+    //when group is selected from list view, taken to group watchlist page
+
+    //@TODO
+    //create group button has intent for new CreateGroup.java
 }

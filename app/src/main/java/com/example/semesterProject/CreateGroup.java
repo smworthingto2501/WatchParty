@@ -1,7 +1,5 @@
 package com.example.semesterProject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 
-public class CreateAccount extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CreateGroup extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +18,9 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     //@TODO
-    // make it so the edit profile button on profileFragment goes back to this page
-    //Create Account Button
-    public void clickFunction(View view) {
-        //@TODO
-        //add name, email, username, password to SharedPreferences
+    //need way to add other members to group
 
+    public void clickFunction(View view) {
         String services = "";
 
         CheckBox netflix = findViewById(R.id.netflixBox);

@@ -61,36 +61,7 @@ public class appHome extends AppCompatActivity {
         }
     };
 
-    //@TODO
-    //add streaming and logout to profile page
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.logout:
-//                Intent intent = new Intent(this, LoginPage.class);
-//                SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
-//                sharedPreferences.edit().remove(LoginPage.usernameKey).apply();
-//                sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
-//                startActivity(intent);
-//                return true;
-//            case R.id.streaming:
-//                Intent intentChangeStreaming = new Intent(this, CreateAccount.class);
-//                SharedPreferences sharedPreferencesServices = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
-//                sharedPreferencesServices.edit().remove(LoginPage.servicesKey).apply();
-//                startActivity(intentChangeStreaming);
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
 
 
 }
