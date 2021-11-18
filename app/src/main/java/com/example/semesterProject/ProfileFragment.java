@@ -10,9 +10,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -22,22 +23,40 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
 
+        View v = inflater.inflate(R.layout.fragment_profile, container, false);
+        Button logoutButton = (Button) v.findViewById(R.id.logoutButton);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newIntent = new Intent(getActivity(), LoginPage.class);
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+                sharedPreferences.edit().remove(LoginPage.usernameKey).apply();
+                sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
+                startActivity(newIntent);
+            }
+        });
+
+        Button editProfileButton = (Button) v.findViewById(R.id.editProfileButton);
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newIntent = new Intent(getActivity(), CreateAccount.class);
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+                sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
+                startActivity(newIntent);
+            }
+        });
+
+        return v;
         //@TODO
         //want to show all account info similar to create Account page
         //done with shared preferences?
     }
 
-    //@TODO
-    //fix on logout button that sarah broke
-    //should be very similar to notes app lab 5
-    public void onLogout(View v){
-    //    Intent intent = new Intent(this, LoginPage.class);
-//                SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
-//                sharedPreferences.edit().remove(LoginPage.usernameKey).apply();
-//                sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
-//                startActivity(intent);
-//                return true;
+
+    @Override
+    public void onClick(View view) {
+
     }
 }
