@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationBarView;
 
 
+//hey guys: this might be a good option for the swiping profile
+// https://www.geeksforgeeks.org/tinder-swipe-view-with-example-in-android/
+
 public class appHome extends AppCompatActivity {
 
     private NavigationBarView bottomNavigationView;

@@ -19,6 +19,9 @@
             android:name=".CreateGroup"
             android:exported="true" />
         <activity
+            android:name=".Swiping"
+            android:exported="true" />
+        <activity
             android:name=".LoginPage"
             android:exported="true">
             <intent-filter>
