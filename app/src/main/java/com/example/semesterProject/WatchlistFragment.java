@@ -20,20 +20,20 @@ public class WatchlistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //moved this from return statement to up here
-        //View v = inflater.inflate(R.layout.fragment_watchlist, container, false);
+        View v = inflater.inflate(R.layout.fragment_watchlist, container, false);
 
-        //I think this is one way we can link to a new view for swiping
-//        Button swipingButton = (Button) v.findViewById(R.id.swipe);
-//        swipingButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent newIntent = new Intent(getActivity(), Swiping.class);
-//                startActivity(newIntent);
-//            }
-//        });
+        // onClick of swiping view button, open swiping view activity from swiping class
+        Button swipingButton = (Button) v.findViewById(R.id.swipe);
+        swipingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newIntent = new Intent(getActivity(), SwipePage.class);
+                startActivity(newIntent);
+            }
+        });
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_watchlist, container, false);
+        return v;
     }
 
     //@TODO

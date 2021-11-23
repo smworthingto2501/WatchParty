@@ -19,7 +19,7 @@
             android:name=".CreateGroup"
             android:exported="true" />
         <activity
-            android:name=".Swiping"
+            android:name=".SwipePage"
             android:exported="true" />
         <activity
             android:name=".LoginPage"
