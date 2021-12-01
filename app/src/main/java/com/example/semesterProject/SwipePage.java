@@ -69,6 +69,10 @@ public class SwipePage extends AppCompatActivity {
             public void cardSwipedRight(int position) {
                 // on card swiped to right we are displaying a toast message.
                 Toast.makeText(SwipePage.this, "Card Swiped Right", Toast.LENGTH_SHORT).show();
+
+                //this is how we can get data on the movie that they swiped
+                String title = movieModalArrayList.get(position).getMovieName();
+                Toast.makeText(SwipePage.this, "Card Swiped Right" + ": item: " + title, Toast.LENGTH_SHORT).show();
             }
 
             @Override
