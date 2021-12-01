@@ -16,7 +16,4 @@
         android:title="watchlist"
         android:icon="@drawable/ic_watchlist" />
 
-
-
-
 </menu>

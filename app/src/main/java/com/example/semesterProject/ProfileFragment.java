@@ -11,12 +11,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
+    View v;
+    TextView fullnameView;
+    TextView usernameView;
+    SharedPreferences sharedPreferences;
+
     public ProfileFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fullnameView = v.findViewById(R.id.fullName);
+        fullnameView.setText(sharedPreferences.getString("name", "").toString());
+
+        usernameView = v.findViewById(R.id.username);
+        usernameView.setText(sharedPreferences.getString("username", "").toString());
     }
 
     @Override
@@ -24,15 +40,25 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v = inflater.inflate(R.layout.fragment_profile, container, false);
+        v = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+
+        fullnameView = v.findViewById(R.id.fullName);
+        fullnameView.setText(sharedPreferences.getString("name", "").toString());
+
+        usernameView = v.findViewById(R.id.username);
+        usernameView.setText(sharedPreferences.getString("username", "").toString());
+
+
         Button logoutButton = (Button) v.findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent newIntent = new Intent(getActivity(), LoginPage.class);
-                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+                sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
                 sharedPreferences.edit().remove(LoginPage.usernameKey).apply();
-                sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
+                //sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
                 startActivity(newIntent);
             }
         });
@@ -41,8 +67,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent newIntent = new Intent(getActivity(), CreateAccount.class);
-                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+                Intent newIntent = new Intent(getActivity(), editProfile.class);
+                sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
                 sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
                 startActivity(newIntent);
             }

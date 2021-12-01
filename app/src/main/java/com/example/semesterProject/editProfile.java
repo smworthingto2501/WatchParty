@@ -10,20 +10,31 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+public class editProfile extends AppCompatActivity {
 
-public class CreateAccount extends AppCompatActivity {
+    String services = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account);
+        setContentView(R.layout.activity_edit_profile);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+
+        TextView nameView = findViewById(R.id.editTextPersonName);
+        nameView.setText(sharedPreferences.getString("name", "").toString());
+
+        TextView usernameView = findViewById(R.id.editTextPersonUsername);
+        usernameView.setText(sharedPreferences.getString("username", "").toString());
+
+        TextView passwordView = findViewById(R.id.editTextPersonPassword);
+        passwordView.setText(sharedPreferences.getString("password", "").toString());
+
     }
 
     //Create Account Button
     public void clickFunction(View view) {
-
-        String services = "";
 
         CheckBox netflix = findViewById(R.id.netflixBox);
         if(netflix.isChecked()) {
@@ -45,9 +56,6 @@ public class CreateAccount extends AppCompatActivity {
         TextView nameView = findViewById(R.id.editTextPersonName);
         String name = nameView.getText().toString();
 
-        TextView emailView = findViewById(R.id.editTextPersonEmail);
-        String email = emailView.getText().toString();
-
         TextView usernameView = findViewById(R.id.editTextPersonUsername);
         String username = usernameView.getText().toString();
 
@@ -57,13 +65,10 @@ public class CreateAccount extends AppCompatActivity {
         SharedPreferences sharedPreferencesServices = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
         sharedPreferencesServices.edit().putString("services", services).apply();
         sharedPreferencesServices.edit().putString("name", name).apply();
-        sharedPreferencesServices.edit().putString("email", email).apply();
         sharedPreferencesServices.edit().putString("username", username).apply();
         sharedPreferencesServices.edit().putString("password", password).apply();
-
         //goes to homepage
-        Intent intent = new Intent(this, appHome.class);
-        startActivity(intent);
+        finish();
     }
 
 }

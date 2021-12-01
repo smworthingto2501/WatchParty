@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14010416666666667" />
         <entry key="app/src/main/res/layout/activity_choose_services.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_new_group.xml" value="0.17" />
         <entry key="app/src/main/res/layout/activity_new_note.xml" value="0.17" />

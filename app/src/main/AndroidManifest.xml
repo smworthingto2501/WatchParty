@@ -22,6 +22,9 @@
             android:name=".SwipePage"
             android:exported="true" />
         <activity
+            android:name=".editProfile"
+            android:exported="true" />
+        <activity
             android:name=".LoginPage"
             android:exported="true">
             <intent-filter>
