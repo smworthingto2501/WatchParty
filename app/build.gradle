@@ -18,10 +18,11 @@ android {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
         }
         python {
-            buildPython "C:/Users/iaind/AppData/Local/Programs/Python/Python38-32/python.exe"
+            //buildPython "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.7/Python3"
             pip {
                 install "pandas"
             }
+
         }
         sourceSets {
             main {
