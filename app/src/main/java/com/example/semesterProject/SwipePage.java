@@ -2,13 +2,19 @@ package com.example.semesterProject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.chaquo.python.android.AndroidPlatform;
 import com.daprlabs.cardstack.SwipeDeck;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 // README:
@@ -20,6 +26,8 @@ public class SwipePage extends AppCompatActivity {
     // for our array list and swipe deck.
     private SwipeDeck cardStack;
     private ArrayList<SwipePage> movieModalArrayList;
+
+    //private MovieInfo movieInfo;
 
     public SwipePage() {
         // Required empty public constructor
@@ -33,23 +41,37 @@ public class SwipePage extends AppCompatActivity {
         //the data for those gets sets below manually and then gets passed to an adapter that ends up populating the cards and such
         setContentView(R.layout.activity_swiping);
 
+        // TEST.
+        if (!Python.isStarted()) {
+            Python.start(new AndroidPlatform(this));
+        }
+        //movieInfo = new MovieInfo();
+
         // on below line we are initializing our array list and swipe deck.
         movieModalArrayList = new ArrayList<>();
         cardStack = (SwipeDeck) findViewById(R.id.swipe_deck);
+        Python python = Python.getInstance();
+        PyObject recommend = python.getModule("recommend");
+        PyObject movies = recommend.callAttr("get_top_movies");
+        String[] movieTitleArray = movies.get("titles").toJava(String[].class);
+        ArrayList<String> movieTitles = new ArrayList<String>(Arrays.asList(movieTitleArray));
+        String[] movieRuntimeArray = movies.get("runtimes").toJava(String[].class);
+        ArrayList<String> movieRuntimes = new ArrayList<String>(Arrays.asList(movieRuntimeArray));
+        String[] movieGenreArray = movies.get("genres").toJava(String[].class);
+        ArrayList<String> movieGenres = new ArrayList<String>(Arrays.asList(movieGenreArray));
+        String[] moviePlotArray = movies.get("plots").toJava(String[].class);
+        ArrayList<String> moviePlots = new ArrayList<String>(Arrays.asList(moviePlotArray));
+        String[] moviePosterArray = movies.get("posters").toJava(String[].class);
+        ArrayList<String> moviePosters = new ArrayList<String>(Arrays.asList(moviePosterArray));
 
-        // on below line we are adding data to our array list.
-        //we would probably alter this to loop through API data
-        movieModalArrayList.add(new SwipePage("Titanic", "194 min", "Drama, Romance",
-                "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic", R.drawable.ic_baseline_back_hand_24));
-        movieModalArrayList.add(new SwipePage("E.T. the Extra-Terrestrial", "115 min", "Adventure, Family, Sci-Fi",
-                "A troubled child summons the courage to help a friendly alien escape Earth and return to his home world.", R.drawable.ic_baseline_back_hand_24));
-        movieModalArrayList.add(new SwipePage("The Wizard of Oz", "102 min", "Adventure, Family, Fantasy",
-                "Young Dorothy Gale and her dog are swept away by a tornado from their Kansas farm to the magical Land of Oz, " +
-                              "and embark on a quest with three new friends to see the Wizard, who can return her to her home and fulfill the others' wishes.", R.drawable.ic_baseline_back_hand_24));
-        movieModalArrayList.add(new SwipePage("The Lion King", "88 min", "Animation, Adventure, Drama",
-                "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.", R.drawable.ic_baseline_back_hand_24));
-        movieModalArrayList.add(new SwipePage("The Godfather", "175 min", "Crime, Drama",
-                "The Godfather follows Vito Corleone Don of the Corleone family as he passes the mantel to his son Michael.", R.drawable.ic_baseline_back_hand_24));
+        for (int i=0; i<movieTitles.size(); i++) {
+            movieModalArrayList.add(new SwipePage(
+                    movieTitles.get(i),
+                    movieRuntimes.get(i),
+                    movieGenres.get(i),
+                    moviePlots.get(i),
+                    R.drawable.ic_baseline_back_hand_24));
+        }
 
         // creating a variable for our adapter class and passing array list to it.
         final SwipeAdapter adapter = new SwipeAdapter(movieModalArrayList, this);
@@ -78,7 +100,7 @@ public class SwipePage extends AppCompatActivity {
             @Override
             public void cardsDepleted() {
                 // this method is called when no card is present
-                Toast.makeText(SwipePage.this, "No more courses present", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SwipePage.this, "No more cards present", Toast.LENGTH_SHORT).show();
             }
 
             @Override
