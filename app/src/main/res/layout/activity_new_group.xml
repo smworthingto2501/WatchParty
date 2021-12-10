@@ -13,14 +13,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="315dp"
+        android:onClick="clickFunction"
         android:text="SAVE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noteView" />
+        app:layout_constraintTop_toBottomOf="@+id/groupView" />
 
     <EditText
-        android:id="@+id/noteView"
+        android:id="@+id/groupView"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
