@@ -31,6 +31,26 @@ public class editProfile extends AppCompatActivity {
         TextView passwordView = findViewById(R.id.editTextPersonPassword);
         passwordView.setText(sharedPreferences.getString("password", "").toString());
 
+        if(sharedPreferences.getString("services", "").contains("Netflix")){
+            CheckBox netflixBox = findViewById(R.id.netflixBox);
+            netflixBox.setChecked(true);
+        }
+
+        if(sharedPreferences.getString("services", "").contains("HBOMax")){
+            CheckBox hboBox = findViewById(R.id.hboBox);
+            hboBox.setChecked(true);
+        }
+
+        if(sharedPreferences.getString("services", "").contains("Hulu")){
+            CheckBox huluBox = findViewById(R.id.huluBox);
+            huluBox.setChecked(true);
+        }
+
+        if(sharedPreferences.getString("services", "").contains("AmazonPrime")){
+            CheckBox amazonBox = findViewById(R.id.amazonPrime);
+            amazonBox.setChecked(true);
+        }
+
     }
 
     //Create Account Button
