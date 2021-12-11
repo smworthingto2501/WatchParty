@@ -42,7 +42,7 @@ public class GroupFragment extends Fragment {
 
         ArrayList<String> displayGroups = new ArrayList<>();
         for (Group group : groups) {
-            displayGroups.add(String.format("Title:%s\nContent:%s", group.getTitle(), group.getContent()));
+            displayGroups.add(String.format("%s\nMembers: %s", group.getTitle(), group.getContent()));
         }
 
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, displayGroups);
@@ -70,9 +70,4 @@ public class GroupFragment extends Fragment {
         return v;
     }
 
-    //@TODO
-    //when group is selected from list view, taken to group watchlist page
-
-    //@TODO
-    //create group button has intent for new CreateGroup.java
 }
