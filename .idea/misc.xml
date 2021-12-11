@@ -6,11 +6,11 @@
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.14010416666666667" />
         <entry key="app/src/main/res/drawable/ic_group.xml" value="0.228125" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14010416666666667" />
+        <entry key="app/src/main/res/drawable/ic_watchlist.xml" value="0.1537037037037037" />
         <entry key="app/src/main/res/layout/activity_choose_services.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_new_group.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_new_group.xml" value="0.17" />
         <entry key="app/src/main/res/layout/activity_new_note.xml" value="0.17" />
         <entry key="app/src/main/res/layout/activity_notes_app.xml" value="0.21" />
         <entry key="app/src/main/res/layout/fragment_group.xml" value="0.21197916666666666" />

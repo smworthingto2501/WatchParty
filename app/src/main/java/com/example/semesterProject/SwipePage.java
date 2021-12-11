@@ -3,6 +3,8 @@ package com.example.semesterProject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.chaquo.python.PyObject;
@@ -26,6 +28,8 @@ public class SwipePage extends AppCompatActivity {
     // for our array list and swipe deck.
     private SwipeDeck cardStack;
     private ArrayList<SwipePage> movieModalArrayList;
+    public static ArrayList<String> watchlist = new ArrayList<>();
+
 
     //private MovieInfo movieInfo;
 
@@ -46,6 +50,7 @@ public class SwipePage extends AppCompatActivity {
             Python.start(new AndroidPlatform(this));
         }
         //movieInfo = new MovieInfo();
+
 
         // on below line we are initializing our array list and swipe deck.
         movieModalArrayList = new ArrayList<>();
@@ -95,6 +100,17 @@ public class SwipePage extends AppCompatActivity {
                 //this is how we can get data on the movie that they swiped
                 String title = movieModalArrayList.get(position).getMovieName();
                 Toast.makeText(SwipePage.this, "Card Swiped Right" + ": item: " + title, Toast.LENGTH_SHORT).show();
+
+                SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+                String username = sharedPreferences.getString("username", "");
+                //add movie to watchlist
+                Context context = getApplicationContext();
+                SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE, null);
+                watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
+                watchlistHelper.saveGroups(username, title);
+                ArrayList<String> saveSuccess = watchlistHelper.readWatchlist(username);
+
+                Log.i("MOVIES", saveSuccess.toString());
             }
 
             @Override
@@ -132,6 +148,10 @@ public class SwipePage extends AppCompatActivity {
     }
 
     private int imgId;
+
+    public static ArrayList<String> getWatchlist() {
+        return watchlist;
+    }
 
     // creating getter and setter methods
     public String getMovieName() {
