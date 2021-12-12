@@ -68,6 +68,24 @@
             android:text="Description"
             android:textColor="@color/black" />
 
+        <Button
+            android:id="@+id/favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="60dp"
+            android:onClick="favoriteFunction"
+            android:text="Set as Favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idTVMovieDescription" />
+
     </LinearLayout>
+
+
 
 </androidx.cardview.widget.CardView>

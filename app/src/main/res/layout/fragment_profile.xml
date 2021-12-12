@@ -84,9 +84,19 @@
         android:id="@+id/favMoviePicture"
         android:layout_width="83dp"
         android:layout_height="77dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/ic_baseline_movie_placeholder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favMovie" />
+
+    <TextView
+        android:id="@+id/favoriteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:text="No Favorite!"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favMovie" />
 </androidx.constraintlayout.widget.ConstraintLayout>

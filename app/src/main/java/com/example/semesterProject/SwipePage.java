@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.chaquo.python.android.AndroidPlatform;
@@ -29,6 +30,8 @@ public class SwipePage extends AppCompatActivity {
     private SwipeDeck cardStack;
     private ArrayList<SwipePage> movieModalArrayList;
     public static ArrayList<String> watchlist = new ArrayList<>();
+    public static String favoriteMovieTitle = "No Favorite";
+    public int flag = 0; //flag for set as favorite button being clicked
 
 
     //private MovieInfo movieInfo;
@@ -88,12 +91,25 @@ public class SwipePage extends AppCompatActivity {
         cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
             @Override
             public void cardSwipedLeft(int position) {
+                //if clicked set favorite
+                if(flag == 1){
+                    favoriteMovieTitle = movieModalArrayList.get(position).getMovieName();
+                }
+                flag = 0;
+
                 // on card swipe left we are displaying a toast message.
                 Toast.makeText(SwipePage.this, "Card Swiped Left", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
             public void cardSwipedRight(int position) {
+                //if clicked save to favorites
+                if(flag == 1){
+                    favoriteMovieTitle = movieModalArrayList.get(position).getMovieName();
+                }
+                flag = 0;
+
                 // on card swiped to right we are displaying a toast message.
                 Toast.makeText(SwipePage.this, "Card Swiped Right", Toast.LENGTH_SHORT).show();
 
@@ -122,12 +138,14 @@ public class SwipePage extends AppCompatActivity {
             @Override
             public void cardActionDown() {
                 // this method is called when card is swiped down.
+                // This doesnt accurately report when cards are swiped up --Sarah
                 Log.i("TAG", "CARDS MOVED DOWN");
             }
 
             @Override
             public void cardActionUp() {
                 // this method is called when card is moved up.
+                // This doesnt accurately report when cards are swiped down --Sarah
                 Log.i("TAG", "CARDS MOVED UP");
             }
         });
@@ -185,6 +203,15 @@ public class SwipePage extends AppCompatActivity {
     public void setMovieDescription(String movieDescription) {
         this.movieDescription = movieDescription;
     }
+
+    public void favoriteFunction(View view) {
+        //on click of set as favorite
+        flag = 1;
+    }
+
+
+
+
 
     // constructor.
     public SwipePage(String movieName, String movieDuration, String movieGenre, String movieDescription, int imgId) {

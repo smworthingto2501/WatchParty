@@ -20,6 +20,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     TextView fullnameView;
     TextView usernameView;
     SharedPreferences sharedPreferences;
+    public static TextView faveView;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -33,6 +34,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         usernameView = v.findViewById(R.id.username);
         usernameView.setText(sharedPreferences.getString("username", "").toString());
+
+        faveView = v.findViewById(R.id.favoriteTitle);
+        faveView.setText(SwipePage.favoriteMovieTitle);
     }
 
     @Override
