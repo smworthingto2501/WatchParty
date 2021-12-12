@@ -61,4 +61,10 @@ public class groupsHelper {
                 content, title, username));
     }
 
+    public void deleteGroup(String title, String username) {
+        createTable();
+        sqLiteDatabase.execSQL(String.format("DELETE from groups where title = '%s' and username = '%s'",
+                title, username));
+    }
+
 }
