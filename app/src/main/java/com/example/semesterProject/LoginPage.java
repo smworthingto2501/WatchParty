@@ -12,18 +12,18 @@ import android.widget.EditText;
 public class LoginPage extends AppCompatActivity {
 
     public static String usernameKey;
-    public static String servicesKey;
+    public static String genresKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         usernameKey = "username";
-        servicesKey = "services";
+        genresKey = "genres";
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
 
         if (!sharedPreferences.getString(usernameKey, "").equals("")){
-            if(!sharedPreferences.getString(servicesKey,"").equals("")){
+            if(!sharedPreferences.getString(genresKey,"").equals("")){
                 Intent intent = new Intent(this, appHome.class);
                 startActivity(intent);
             }

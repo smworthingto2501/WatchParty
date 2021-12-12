@@ -49,16 +49,22 @@ public class watchlistHelper {
         return watchlist;
     }
 
-    public void saveGroups(String username, String title){
+    public void saveWatchList(String username, String title){
         createTable();
         sqLiteDatabase.execSQL(String.format("INSERT INTO watchlist (username, title) VALUES ('%s', '%s')",
                 username, title));
     }
 
-    public void updateGroup(String title) {
+    public void updateWatchList(String title) {
         createTable();
         sqLiteDatabase.execSQL(String.format("UPDATE watchlist set title = '%s'",
                 title));
+    }
+
+    public void deleteGroup(String title, String username) {
+        createTable();
+        sqLiteDatabase.execSQL(String.format("DELETE from watchlist where title = '%s' and username = '%s'",
+                title, username));
     }
 
 }

@@ -99,4 +99,14 @@
         android:text="No Favorite!"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favMovie" />
+
+    <TextView
+        android:id="@+id/genresView"
+        android:layout_width="262dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favMoviePicture" />
 </androidx.constraintlayout.widget.ConstraintLayout>

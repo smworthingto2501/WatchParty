@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class CreateAccount extends AppCompatActivity {
 
     @Override
@@ -23,23 +21,23 @@ public class CreateAccount extends AppCompatActivity {
     //Create Account Button
     public void clickFunction(View view) {
 
-        String services = "";
+        String genres = "";
 
-        CheckBox netflix = findViewById(R.id.netflixBox);
-        if(netflix.isChecked()) {
-            services = services + " Netflix ";
+        CheckBox adventure = findViewById(R.id.adventureBox);
+        if(adventure.isChecked()) {
+            genres = genres + " Adventure ";
         }
-        CheckBox hbo = findViewById(R.id.hboBox);
-        if(hbo.isChecked()) {
-            services = services + " HBOMax ";
+        CheckBox action = findViewById(R.id.actionBox);
+        if(action.isChecked()) {
+            genres = genres + " Action ";
         }
-        CheckBox hulu = findViewById(R.id.huluBox);
-        if(hulu.isChecked()) {
-            services = services + " Hulu ";
+        CheckBox comedy = findViewById(R.id.comedyBox);
+        if(comedy.isChecked()) {
+            genres = genres + " Comedy ";
         }
-        CheckBox prime = findViewById(R.id.amazonPrime);
-        if(prime.isChecked()) {
-            services = services + " AmazonPrime ";
+        CheckBox romance = findViewById(R.id.romanceBox);
+        if(romance.isChecked()) {
+            genres = genres + " Romance ";
         }
 
         TextView nameView = findViewById(R.id.editTextPersonName);
@@ -55,7 +53,7 @@ public class CreateAccount extends AppCompatActivity {
         String password = passwordView.getText().toString();
 
         SharedPreferences sharedPreferencesServices = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
-        sharedPreferencesServices.edit().putString("services", services).apply();
+        sharedPreferencesServices.edit().putString("genres", genres).apply();
         sharedPreferencesServices.edit().putString("name", name).apply();
         sharedPreferencesServices.edit().putString("email", email).apply();
         sharedPreferencesServices.edit().putString("username", username).apply();

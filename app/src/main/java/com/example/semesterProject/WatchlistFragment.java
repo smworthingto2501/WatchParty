@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -63,6 +64,22 @@ public class WatchlistFragment extends Fragment {
         ListView listView = (ListView) v.findViewById(R.id.watchlist);
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String item = adapterView.getItemAtPosition(i).toString();
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+
+                Context context = getActivity();
+                //context.deleteDatabase("watchlist");
+                SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE,null);
+
+                watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
+                watchlistHelper.deleteGroup(item, sharedPreferences.getString("username", ""));
+
+                onResume();
+            }
+        });
         // Inflate the layout for this fragment
         return v;
     }

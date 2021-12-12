@@ -21,6 +21,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     TextView usernameView;
     SharedPreferences sharedPreferences;
     public static TextView faveView;
+    TextView genresView;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -37,6 +38,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         faveView = v.findViewById(R.id.favoriteTitle);
         faveView.setText(SwipePage.favoriteMovieTitle);
+
+        genresView = v.findViewById(R.id.genresView);
+        genresView.setText(sharedPreferences.getString("genres", "").toString());
     }
 
     @Override
@@ -54,10 +58,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         usernameView = v.findViewById(R.id.username);
         usernameView.setText(sharedPreferences.getString("username", "").toString());
 
-        faveView = v.findViewById(R.id.favoriteTitle);
-        faveView.setText(SwipePage.favoriteMovieTitle);
-        sharedPreferences.edit().putString("favoriteMovie", SwipePage.favoriteMovieTitle).apply();
-
+        genresView = v.findViewById(R.id.genresView);
+        genresView.setText(sharedPreferences.getString("genres", "").toString());
 
         Button logoutButton = (Button) v.findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +68,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 Intent newIntent = new Intent(getActivity(), LoginPage.class);
                 sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
                 sharedPreferences.edit().remove(LoginPage.usernameKey).apply();
-                sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
+                sharedPreferences.edit().remove(LoginPage.genresKey).apply();
                 startActivity(newIntent);
             }
         });
