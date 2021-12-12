@@ -3,7 +3,6 @@ package com.example.semesterProject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 
 public class editProfile extends AppCompatActivity {
 
-    String services = "";
+    String genres = "";
 
 
     @Override
@@ -31,23 +30,23 @@ public class editProfile extends AppCompatActivity {
         TextView passwordView = findViewById(R.id.editTextPersonPassword);
         passwordView.setText(sharedPreferences.getString("password", "").toString());
 
-        if(sharedPreferences.getString("services", "").contains("Netflix")){
-            CheckBox netflixBox = findViewById(R.id.netflixBox);
+        if(sharedPreferences.getString("genres", "").contains("Adventure")){
+            CheckBox netflixBox = findViewById(R.id.adventureBox);
             netflixBox.setChecked(true);
         }
 
-        if(sharedPreferences.getString("services", "").contains("HBOMax")){
-            CheckBox hboBox = findViewById(R.id.hboBox);
+        if(sharedPreferences.getString("genres", "").contains("Action")){
+            CheckBox hboBox = findViewById(R.id.actionBox);
             hboBox.setChecked(true);
         }
 
-        if(sharedPreferences.getString("services", "").contains("Hulu")){
-            CheckBox huluBox = findViewById(R.id.huluBox);
+        if(sharedPreferences.getString("genres", "").contains("Comedy")){
+            CheckBox huluBox = findViewById(R.id.comedyBox);
             huluBox.setChecked(true);
         }
 
-        if(sharedPreferences.getString("services", "").contains("AmazonPrime")){
-            CheckBox amazonBox = findViewById(R.id.amazonPrime);
+        if(sharedPreferences.getString("genres", "").contains("Romance")){
+            CheckBox amazonBox = findViewById(R.id.romanceBox);
             amazonBox.setChecked(true);
         }
 
@@ -56,21 +55,21 @@ public class editProfile extends AppCompatActivity {
     //Create Account Button
     public void clickFunction(View view) {
 
-        CheckBox netflix = findViewById(R.id.netflixBox);
+        CheckBox netflix = findViewById(R.id.adventureBox);
         if(netflix.isChecked()) {
-            services = services + " Netflix ";
+            genres = genres + " Adventure ";
         }
-        CheckBox hbo = findViewById(R.id.hboBox);
+        CheckBox hbo = findViewById(R.id.actionBox);
         if(hbo.isChecked()) {
-            services = services + " HBOMax ";
+            genres = genres + " Action ";
         }
-        CheckBox hulu = findViewById(R.id.huluBox);
+        CheckBox hulu = findViewById(R.id.comedyBox);
         if(hulu.isChecked()) {
-            services = services + " Hulu ";
+            genres = genres + " Comedy ";
         }
-        CheckBox prime = findViewById(R.id.amazonPrime);
+        CheckBox prime = findViewById(R.id.romanceBox);
         if(prime.isChecked()) {
-            services = services + " AmazonPrime ";
+            genres = genres + " Romance ";
         }
 
         TextView nameView = findViewById(R.id.editTextPersonName);
@@ -83,7 +82,7 @@ public class editProfile extends AppCompatActivity {
         String password = passwordView.getText().toString();
 
         SharedPreferences sharedPreferencesServices = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
-        sharedPreferencesServices.edit().putString("services", services).apply();
+        sharedPreferencesServices.edit().putString("genres", genres).apply();
         sharedPreferencesServices.edit().putString("name", name).apply();
         sharedPreferencesServices.edit().putString("username", username).apply();
         sharedPreferencesServices.edit().putString("password", password).apply();
