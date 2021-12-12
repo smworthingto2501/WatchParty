@@ -12,13 +12,11 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="162dp"
         android:onClick="clickFunction"
         android:text="SAVE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memberView5" />
 
@@ -26,13 +24,11 @@
         android:id="@+id/memberView1"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="74dp"
         android:hint="Member 1"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/groupTitle" />
 
@@ -40,13 +36,11 @@
         android:id="@+id/memberView3"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="73dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="74dp"
         android:hint="Member 3"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memberView2" />
 
@@ -54,13 +48,11 @@
         android:id="@+id/memberView4"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="74dp"
         android:hint="Member 4"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memberView3" />
 
@@ -68,13 +60,11 @@
         android:id="@+id/memberView5"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="73dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="74dp"
         android:hint="Member 5"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memberView4" />
 
@@ -82,13 +72,11 @@
         android:id="@+id/memberView2"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="73dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="74dp"
         android:hint="Member 2"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memberView1" />
 
@@ -96,15 +84,13 @@
         android:id="@+id/groupTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="67dp"
         android:ems="10"
         android:hint="Group Title"
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,11 +98,10 @@
         android:id="@+id/deleteGroupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="166dp"
         android:text="DELETE"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
