@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class WatchlistFragment extends Fragment {
 
     public static ArrayList<String> movies = new ArrayList<>();
+    public static View v;
 
     public WatchlistFragment() {
         // Required empty public constructor
@@ -30,7 +31,7 @@ public class WatchlistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //moved this from return statement to up here
-        View v = inflater.inflate(R.layout.fragment_watchlist, container, false);
+        v = inflater.inflate(R.layout.fragment_watchlist, container, false);
 
         // onClick of swiping view button, open swiping view activity from swiping class
         Button swipingButton = (Button) v.findViewById(R.id.swipe);
@@ -71,5 +72,25 @@ public class WatchlistFragment extends Fragment {
     //idea is that selected movies could be removed with button in method below...
     public void onClick(View v){
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Context context = getActivity();
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+        SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE,null);
+
+        watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
+        movies = watchlistHelper.readWatchlist(sharedPreferences.getString("username", ""));
+        ArrayList<String> displayGroups = new ArrayList<>();
+        for (String title : movies) {
+            displayGroups.add(String.format(title));
+            Log.i("MOVIES", title);
+        }
+
+        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, displayGroups);
+        ListView listView = (ListView) v.findViewById(R.id.watchlist);
+        listView.setAdapter(adapter);
     }
 }
