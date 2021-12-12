@@ -6,4 +6,3 @@
 - Add more non-functional stuff to groups (ie show what streaming services the group has)
 - upload profile picture
 - add credit or sources you used to read.me
-- add favorite movie to shared preferences
