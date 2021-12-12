@@ -54,6 +54,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         usernameView = v.findViewById(R.id.username);
         usernameView.setText(sharedPreferences.getString("username", "").toString());
 
+        faveView = v.findViewById(R.id.favoriteTitle);
+        faveView.setText(SwipePage.favoriteMovieTitle);
+        sharedPreferences.edit().putString("favoriteMovie", SwipePage.favoriteMovieTitle).apply();
+
 
         Button logoutButton = (Button) v.findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
