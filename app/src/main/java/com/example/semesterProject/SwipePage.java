@@ -121,13 +121,15 @@ public class SwipePage extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
                 String username = sharedPreferences.getString("username", "");
                 //add movie to watchlist
-                Context context = getApplicationContext();
-                SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE, null);
-                watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
-                watchlistHelper.saveWatchList(username, title);
-                ArrayList<String> saveSuccess = watchlistHelper.readWatchlist(username);
-
-                Log.i("MOVIES", saveSuccess.toString());
+                if(watched != 1) {
+                    Context context = getApplicationContext();
+                    SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE, null);
+                    watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
+                    watchlistHelper.saveWatchList(username, title);
+                    ArrayList<String> saveSuccess = watchlistHelper.readWatchlist(username);
+                    Log.i("MOVIES", saveSuccess.toString());
+                }
+                watched = 0;
             }
 
             @Override
