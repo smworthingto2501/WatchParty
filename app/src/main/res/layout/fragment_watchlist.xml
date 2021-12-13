@@ -29,21 +29,32 @@
         android:id="@+id/swipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Swipe Mode (Test)"
+        android:layout_marginTop="20dp"
+        android:text="Enter Swipe Mode"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groups" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ListView
         android:id="@+id/watchlist"
         android:layout_width="302dp"
         android:layout_height="250dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/swipe" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Click a movie to remove from watch list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groups" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

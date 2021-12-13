@@ -32,6 +32,7 @@ public class SwipePage extends AppCompatActivity {
     public static ArrayList<String> watchlist = new ArrayList<>();
     public static String favoriteMovieTitle = "No Favorite";
     public int flag = 0; //flag for set as favorite button being clicked
+    public int watched = 0; //flag for if the user has watched or not, used to adjust recommendation
 
 
     //private MovieInfo movieInfo;
@@ -98,7 +99,7 @@ public class SwipePage extends AppCompatActivity {
                 flag = 0;
 
                 // on card swipe left we are displaying a toast message.
-                Toast.makeText(SwipePage.this, "Card Swiped Left", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SwipePage.this, "Not interested", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -111,11 +112,11 @@ public class SwipePage extends AppCompatActivity {
                 flag = 0;
 
                 // on card swiped to right we are displaying a toast message.
-                Toast.makeText(SwipePage.this, "Card Swiped Right", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SwipePage.this, "Card Swiped Right", Toast.LENGTH_SHORT).show();
 
                 //this is how we can get data on the movie that they swiped
                 String title = movieModalArrayList.get(position).getMovieName();
-                Toast.makeText(SwipePage.this, "Card Swiped Right" + ": item: " + title, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SwipePage.this, "Interested in" + ": " + title, Toast.LENGTH_SHORT).show();
 
                 SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
                 String username = sharedPreferences.getString("username", "");
@@ -209,7 +210,11 @@ public class SwipePage extends AppCompatActivity {
         flag = 1;
     }
 
-
+    public void watchedMovie(View view) {
+        //on click of Already watched
+        watched = 1;
+        Toast.makeText(SwipePage.this, "Did you enjoy the movie?", Toast.LENGTH_SHORT).show();
+    }
 
 
 
