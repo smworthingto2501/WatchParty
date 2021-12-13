@@ -79,15 +79,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 Intent newIntent = new Intent(getActivity(), editProfile.class);
                 sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
-                //sharedPreferences.edit().remove(LoginPage.servicesKey).apply();
                 startActivity(newIntent);
             }
         });
 
         return v;
-        //@TODO
-        //want to show all account info similar to create Account page
-        //done with shared preferences?
     }
 
 

@@ -44,12 +44,10 @@ public class WatchlistFragment extends Fragment {
             }
         });
 
-       // movies = SwipePage.getWatchlist();
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
 
         Context context = getActivity();
-        //context.deleteDatabase("watchlist");
         SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE,null);
 
         watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);

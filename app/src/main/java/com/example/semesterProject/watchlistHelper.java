@@ -27,7 +27,6 @@ public class watchlistHelper {
         Cursor c = sqLiteDatabase.rawQuery(String.format("SELECT * from watchlist where username like '%s'", username), null);
 
         int titleIndex = c.getColumnIndex("title");
-        //int contentIndex = c.getColumnIndex("content");
 
         c.moveToFirst();
 

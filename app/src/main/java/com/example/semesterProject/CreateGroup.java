@@ -116,9 +116,7 @@ public class CreateGroup extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "");
 
-        //String title = titleView.getText().toString();
         String title;
-        //groupHelper.saveGroups(username, title, content);
 
         if(groupid == -1) {
             title = titleView.getText().toString();

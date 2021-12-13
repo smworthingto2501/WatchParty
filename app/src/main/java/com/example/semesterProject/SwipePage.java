@@ -172,17 +172,13 @@ public class SwipePage extends AppCompatActivity {
                 swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
                 swipedList.saveWatchList(username, title);
                 ArrayList<String> swipedSuccess = swipedList.readWatchlist(username);
-                //sqLiteDatabaseSwipes.close();
 
                 Log.i("SWIPES", swipedSuccess.toString());
 
-                // Remove from the deck.
-                //movieModalArrayList.remove(position);
             }
 
             @Override
             public void cardsDepleted() {
-                //movieModalArrayList = new ArrayList<>();
                 movieModalArrayList = getRecommendations();
                 // this method is called when no card is present
                 Toast.makeText(SwipePage.this, "No more cards present", Toast.LENGTH_SHORT).show();
