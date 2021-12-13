@@ -48,11 +48,8 @@ public class SwipePage extends AppCompatActivity {
         swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
         String username = sharedPreferences.getString("username", "");
         ArrayList<String> swipedSuccess = swipedList.readWatchlist(username);
-        //sqLiteDatabaseSwipes.close();
         String swipedMovies = String.join("~", swipedSuccess);
-        Log.i("SWIPES", swipedMovies);
         String genres = sharedPreferences.getString("genres", "");
-        Log.i("GENRES", genres);
 
         Python python = Python.getInstance();
         PyObject recommend = python.getModule("recommend");
@@ -62,7 +59,6 @@ public class SwipePage extends AppCompatActivity {
         String[] movieGenreArray = movies.get("genres").toJava(String[].class);
         String[] moviePlotArray = movies.get("plots").toJava(String[].class);
         String[] moviePosterArray = movies.get("posters").toJava(String[].class);
-        //movies.close();
         ArrayList<String> movieTitles = new ArrayList<String>(Arrays.asList(movieTitleArray));
         ArrayList<String> movieRuntimes = new ArrayList<String>(Arrays.asList(movieRuntimeArray));
         ArrayList<String> movieGenres = new ArrayList<String>(Arrays.asList(movieGenreArray));
@@ -130,7 +126,6 @@ public class SwipePage extends AppCompatActivity {
                 swipedList.saveWatchList(username, title);
                 ArrayList<String> swipedSuccess = swipedList.readWatchlist(username);
 
-                Log.i("SWIPES", swipedSuccess.toString());
             }
 
             @Override
@@ -143,7 +138,6 @@ public class SwipePage extends AppCompatActivity {
 
                 // on card swiped to right we are displaying a toast message.
                 Toast.makeText(SwipePage.this, "Card Swiped Right", Toast.LENGTH_SHORT).show();
-                //movieModalArrayList.add(movieModalArrayList.get(position));
 
                 //this is how we can get data on the movie that they swiped
                 String title = movieModalArrayList.get(position).getMovieName();
@@ -161,7 +155,6 @@ public class SwipePage extends AppCompatActivity {
                     watchlistHelper.saveWatchList(username, title);
                     ArrayList<String> saveSuccess = watchlistHelper.readWatchlist(username);
                     sqLiteDatabase.close();
-                    Log.i("MOVIES", saveSuccess.toString());
                 }
                 watched = 0;
 
@@ -172,8 +165,6 @@ public class SwipePage extends AppCompatActivity {
                 swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
                 swipedList.saveWatchList(username, title);
                 ArrayList<String> swipedSuccess = swipedList.readWatchlist(username);
-
-                Log.i("SWIPES", swipedSuccess.toString());
 
             }
 
@@ -187,15 +178,11 @@ public class SwipePage extends AppCompatActivity {
             @Override
             public void cardActionDown() {
                 // this method is called when card is swiped down.
-                // This doesn't accurately report when cards are swiped up --Sarah
-                Log.i("TAG", "CARDS MOVED DOWN");
             }
 
             @Override
             public void cardActionUp() {
                 // this method is called when card is moved up.
-                // This doesnt accurately report when cards are swiped down --Sarah
-                Log.i("TAG", "CARDS MOVED UP");
             }
         });
     }

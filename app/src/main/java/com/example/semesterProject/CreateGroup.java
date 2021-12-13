@@ -43,8 +43,6 @@ public class CreateGroup extends AppCompatActivity {
             String groupTitle = group.getTitle();
             titleView.setText(groupTitle);
 
-            String member;
-
             String[] splitGroup = groupContent.split(";");
             for(int i = 0; i < splitGroup.length; i++) {
                 if(splitGroup[i].length() > 0) {
