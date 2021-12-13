@@ -71,11 +71,16 @@ public class WatchlistFragment extends Fragment {
                 SharedPreferences sharedPreferences = getActivity().getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
 
                 Context context = getActivity();
-                //context.deleteDatabase("watchlist");
-                SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE,null);
 
+                SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE,null);
                 watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
                 watchlistHelper.deleteGroup(item, sharedPreferences.getString("username", ""));
+                sqLiteDatabase.close();
+
+                SQLiteDatabase sqLiteDatabaseSwipes = context.openOrCreateDatabase("swipedList", Context.MODE_PRIVATE, null);
+                swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
+                swipedList.deleteWatchList(item, sharedPreferences.getString("username", ""));
+                sqLiteDatabaseSwipes.close();
 
                 onResume();
             }

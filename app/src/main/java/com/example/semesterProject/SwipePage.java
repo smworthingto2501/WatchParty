@@ -99,8 +99,19 @@ public class SwipePage extends AppCompatActivity {
                 flag = 0;
 
                 // on card swipe left we are displaying a toast message.
-                Toast.makeText(SwipePage.this, "Not interested", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SwipePage.this, "Card Swiped Left", Toast.LENGTH_SHORT).show();
+                String title = movieModalArrayList.get(position).getMovieName();
+                SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
+                String username = sharedPreferences.getString("username", "");
+                //add movie to watchlist
+                Context context = getApplicationContext();
 
+                SQLiteDatabase sqLiteDatabaseSwipes = context.openOrCreateDatabase("swipedList", Context.MODE_PRIVATE, null);
+                swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
+                swipedList.saveWatchList(username, title);
+                ArrayList<String> swipedSuccess = swipedList.readWatchlist(username);
+
+                Log.i("SWIPES", swipedSuccess.toString());
             }
 
             @Override
@@ -112,24 +123,29 @@ public class SwipePage extends AppCompatActivity {
                 flag = 0;
 
                 // on card swiped to right we are displaying a toast message.
-                //Toast.makeText(SwipePage.this, "Card Swiped Right", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SwipePage.this, "Card Swiped Right", Toast.LENGTH_SHORT).show();
 
                 //this is how we can get data on the movie that they swiped
                 String title = movieModalArrayList.get(position).getMovieName();
-                Toast.makeText(SwipePage.this, "Interested in" + ": " + title, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SwipePage.this, "Card Swiped Right" + ": item: " + title, Toast.LENGTH_SHORT).show();
 
                 SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
                 String username = sharedPreferences.getString("username", "");
                 //add movie to watchlist
-                if(watched != 1) {
-                    Context context = getApplicationContext();
-                    SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE, null);
-                    watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
-                    watchlistHelper.saveWatchList(username, title);
-                    ArrayList<String> saveSuccess = watchlistHelper.readWatchlist(username);
-                    Log.i("MOVIES", saveSuccess.toString());
-                }
-                watched = 0;
+                Context context = getApplicationContext();
+                SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE, null);
+                watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
+                watchlistHelper.saveWatchList(username, title);
+                ArrayList<String> saveSuccess = watchlistHelper.readWatchlist(username);
+
+                Log.i("MOVIES", saveSuccess.toString());
+
+                SQLiteDatabase sqLiteDatabaseSwipes = context.openOrCreateDatabase("swipedList", Context.MODE_PRIVATE, null);
+                swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
+                swipedList.saveWatchList(username, title);
+                ArrayList<String> swipedSuccess = swipedList.readWatchlist(username);
+
+                Log.i("SWIPES", swipedSuccess.toString());
             }
 
             @Override
@@ -212,11 +228,7 @@ public class SwipePage extends AppCompatActivity {
         flag = 1;
     }
 
-    public void watchedMovie(View view) {
-        //on click of Already watched
-        watched = 1;
-        Toast.makeText(SwipePage.this, "Did you enjoy the movie?", Toast.LENGTH_SHORT).show();
-    }
+
 
 
 
