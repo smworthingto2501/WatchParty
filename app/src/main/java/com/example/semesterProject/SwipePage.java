@@ -120,8 +120,10 @@ public class SwipePage extends AppCompatActivity {
                 String title = movieModalArrayList.get(position).getMovieName();
                 SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
                 String username = sharedPreferences.getString("username", "");
-                //add movie to watchlist
+
                 Context context = getApplicationContext();
+
+
 
                 SQLiteDatabase sqLiteDatabaseSwipes = context.openOrCreateDatabase("swipedList", Context.MODE_PRIVATE, null);
                 swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
@@ -129,8 +131,6 @@ public class SwipePage extends AppCompatActivity {
                 ArrayList<String> swipedSuccess = swipedList.readWatchlist(username);
 
                 Log.i("SWIPES", swipedSuccess.toString());
-                //sqLiteDatabaseSwipes.close();
-                //movieModalArrayList.remove(position);
             }
 
             @Override
@@ -152,15 +152,21 @@ public class SwipePage extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
                 String username = sharedPreferences.getString("username", "");
 
-                //add movie to watchlist
                 Context context = getApplicationContext();
-                SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE, null);
-                watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
-                watchlistHelper.saveWatchList(username, title);
-                ArrayList<String> saveSuccess = watchlistHelper.readWatchlist(username);
-                sqLiteDatabase.close();
+                //add movie to watchlist
+                if(watched != 1) {
 
-                Log.i("MOVIES", saveSuccess.toString());
+                    SQLiteDatabase sqLiteDatabase = context.openOrCreateDatabase("watchlist", Context.MODE_PRIVATE, null);
+                    watchlistHelper watchlistHelper = new watchlistHelper(sqLiteDatabase);
+                    watchlistHelper.saveWatchList(username, title);
+                    ArrayList<String> saveSuccess = watchlistHelper.readWatchlist(username);
+                    sqLiteDatabase.close();
+                    Log.i("MOVIES", saveSuccess.toString());
+                }
+                watched = 0;
+
+
+
 
                 SQLiteDatabase sqLiteDatabaseSwipes = context.openOrCreateDatabase("swipedList", Context.MODE_PRIVATE, null);
                 swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
@@ -256,6 +262,11 @@ public class SwipePage extends AppCompatActivity {
         flag = 1;
     }
 
+    public void watchedMovie(View view) {
+        //on click of Already watched
+        watched = 1;
+        Toast.makeText(SwipePage.this, "Did you enjoy the movie?", Toast.LENGTH_SHORT).show();
+    }
 
 
 
