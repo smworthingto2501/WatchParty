@@ -119,8 +119,6 @@ public class SwipePage extends AppCompatActivity {
 
                 Context context = getApplicationContext();
 
-
-
                 SQLiteDatabase sqLiteDatabaseSwipes = context.openOrCreateDatabase("swipedList", Context.MODE_PRIVATE, null);
                 swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
                 swipedList.saveWatchList(username, title);
@@ -141,7 +139,7 @@ public class SwipePage extends AppCompatActivity {
 
                 //this is how we can get data on the movie that they swiped
                 String title = movieModalArrayList.get(position).getMovieName();
-                Toast.makeText(SwipePage.this, "Card Swiped Right" + ": item: " + title, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SwipePage.this, "Card Swiped Right" + ": item: " + title, Toast.LENGTH_SHORT).show();
 
                 SharedPreferences sharedPreferences = getSharedPreferences("com.example.semesterProject", Context.MODE_PRIVATE);
                 String username = sharedPreferences.getString("username", "");
@@ -157,9 +155,6 @@ public class SwipePage extends AppCompatActivity {
                     sqLiteDatabase.close();
                 }
                 watched = 0;
-
-
-
 
                 SQLiteDatabase sqLiteDatabaseSwipes = context.openOrCreateDatabase("swipedList", Context.MODE_PRIVATE, null);
                 swipedListHelper swipedList = new swipedListHelper(sqLiteDatabaseSwipes);
@@ -250,9 +245,6 @@ public class SwipePage extends AppCompatActivity {
         watched = 1;
         Toast.makeText(SwipePage.this, "Did you enjoy the movie?", Toast.LENGTH_SHORT).show();
     }
-
-
-
 
     // constructor.
     public SwipePage(String movieName, String movieDuration, String movieGenre, String movieDescription, int imgId) {

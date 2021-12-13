@@ -55,7 +55,6 @@ public class WatchlistFragment extends Fragment {
         ArrayList<String> displayGroups = new ArrayList<>();
         for (String title : movies) {
             displayGroups.add(String.format(title));
-            Log.i("MOVIES", title);
         }
 
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, displayGroups);
@@ -87,9 +86,6 @@ public class WatchlistFragment extends Fragment {
         return v;
     }
 
-    //@TODO
-    //right now there is a list view for the movie watchlist, this may be wrong
-    //idea is that selected movies could be removed with button in method below...
     public void onClick(View v){
 
     }
@@ -106,7 +102,6 @@ public class WatchlistFragment extends Fragment {
         ArrayList<String> displayGroups = new ArrayList<>();
         for (String title : movies) {
             displayGroups.add(String.format(title));
-            Log.i("MOVIES", title);
         }
 
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, displayGroups);

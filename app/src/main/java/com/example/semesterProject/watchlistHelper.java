@@ -34,9 +34,6 @@ public class watchlistHelper {
 
         while(!c.isAfterLast()) {
             String currentTitle = c.getString(titleIndex);
-            //String content = c.getString(contentIndex);
-
-            //Group group = new Group(title, content);
             watchlist.add(currentTitle);
             c.moveToNext();
 
